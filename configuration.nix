@@ -15,6 +15,8 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   boot.initrd.luks.devices."luks-0628aee2-4846-49f6-87c4-a508ab75d5f6".device = "/dev/disk/by-uuid/0628aee2-4846-49f6-87c4-a508ab75d5f6";
   # Setup keyfile
   boot.initrd.secrets = {
