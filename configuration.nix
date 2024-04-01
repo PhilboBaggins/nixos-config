@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   # Bootloader.
@@ -101,6 +102,14 @@
       kate
     #  thunderbird
     ];
+  };
+
+  home-manager = {
+    # Also pass to home manager modules
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "phil" = import ./home.nix;
+    };
   };
 
   # Enable automatic login for the user.
