@@ -6,8 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ./../../modules/nixos/australia.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -31,20 +32,8 @@
   # Set your time zone.
   time.timeZone = "Australia/Sydney";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_AU.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_AU.UTF-8";
-    LC_IDENTIFICATION = "en_AU.UTF-8";
-    LC_MEASUREMENT = "en_AU.UTF-8";
-    LC_MONETARY = "en_AU.UTF-8";
-    LC_NAME = "en_AU.UTF-8";
-    LC_NUMERIC = "en_AU.UTF-8";
-    LC_PAPER = "en_AU.UTF-8";
-    LC_TELEPHONE = "en_AU.UTF-8";
-    LC_TIME = "en_AU.UTF-8";
-  };
+  # Australian internationalisation and keyboard settings
+  australia.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -52,12 +41,6 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "au";
-    variant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
