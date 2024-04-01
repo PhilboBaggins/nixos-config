@@ -14,6 +14,7 @@
     nixosConfigurations.nixos-vm = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
+        ./hosts/_shared/configuration.nix
         ./hosts/nixos-vm/configuration.nix
         inputs.home-manager.nixosModules.default
       ];
