@@ -5,7 +5,7 @@ let
 in
 {
   options.australia = {
-      enable = lib.mkEnableOption "Enable Australian settings";
+    enable = lib.mkEnableOption "Enable Australian settings";
   };
 
   config = lib.mkIf cfg.enable {
