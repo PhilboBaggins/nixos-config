@@ -16,10 +16,10 @@
 
     packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
 
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos-vm = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
-        ./configuration.nix
+        ./hosts/nixos-vm/configuration.nix
         inputs.home-manager.nixosModules.default
       ];
     };

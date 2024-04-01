@@ -96,7 +96,7 @@
   users.users.phil = {
     isNormalUser = true;
     description = "phil";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "vboxsf" ];
     packages = with pkgs; [
       firefox
       kate
