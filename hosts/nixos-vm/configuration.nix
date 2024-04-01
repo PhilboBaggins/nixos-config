@@ -12,4 +12,5 @@
   users.users.phil.extraGroups = ["vboxsf"];
 
   philShared.gui.enable = true;
+  philShared.audio.enable = true;
 }
