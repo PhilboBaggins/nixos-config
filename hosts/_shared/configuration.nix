@@ -67,9 +67,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile
   environment.systemPackages = with pkgs; [
+    curl
     git
     imagemagick
     nano
@@ -78,7 +78,6 @@
     tig
     wget
     zsh
-    curl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
