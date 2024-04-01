@@ -1,7 +1,7 @@
 #!/bin/sh
 
-set -e
-set -u
+set -e  # Exit on error
+set -u  # Treat unset variables as errors
 
 cd "$(dirname -- "$0")"
 
