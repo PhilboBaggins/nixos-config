@@ -18,16 +18,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  boot.initrd.luks.devices."luks-0628aee2-4846-49f6-87c4-a508ab75d5f6".device = "/dev/disk/by-uuid/0628aee2-4846-49f6-87c4-a508ab75d5f6";
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  boot.loader.grub.enableCryptodisk=true;
-
-  boot.initrd.luks.devices."luks-efba47f3-b7f3-42a0-b31d-7a086d3c6a86".keyFile = "/crypto_keyfile.bin";
-  boot.initrd.luks.devices."luks-0628aee2-4846-49f6-87c4-a508ab75d5f6".keyFile = "/crypto_keyfile.bin";
   networking.hostName = "nixos-vm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
