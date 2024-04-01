@@ -11,11 +11,6 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
-
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-
     nixosConfigurations.nixos-vm = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
