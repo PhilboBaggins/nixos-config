@@ -28,5 +28,7 @@ in
         layout = "au";
         variant = "";
     };
+
+    # TODO: Add dictionaries for Australian English
   };
 }
