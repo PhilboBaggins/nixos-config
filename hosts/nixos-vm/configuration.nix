@@ -10,4 +10,6 @@
 
   # Add user to `vboxsf` group to allow shared folders
   users.users.phil.extraGroups = ["vboxsf"];
+
+  philShared.gui.enable = true;
 }

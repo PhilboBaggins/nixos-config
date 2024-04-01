@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ./gui.nix
       ./../../modules/nixos/australia.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -25,13 +26,6 @@
   # Australian internationalisation and keyboard settings
   australia.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -52,18 +46,13 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.phil = {
     isNormalUser = true;
     description = "phil";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox
-      kate
-    #  thunderbird
+      # TODO: Add your user packages here
     ];
   };
 
@@ -74,10 +63,6 @@
       "phil" = import ./home.nix;
     };
   };
-
-  # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "phil";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
