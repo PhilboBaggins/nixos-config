@@ -58,6 +58,7 @@
     nano
     openssh
     python3
+    ripgrep
     tig
     wget
     zsh
