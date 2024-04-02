@@ -13,4 +13,10 @@
 
   philShared.gui.enable = true;
   philShared.audio.enable = true;
+
+  home-manager = {
+    users = {
+      "phil" = import ./home.nix;
+    };
+  };
 }
