@@ -1,9 +1,10 @@
-{ config, lib, ... }:
-
-let
-  cfg = config.kscreenlockerrc;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  cfg = config.kscreenlockerrc;
+in {
   options.kscreenlockerrc = {
     autolock = lib.mkEnableOption "Lock screen automatically after `timeout` minutes of inactivity";
     lockonresume = lib.mkEnableOption "Lock screen automatically after waking from sleep";

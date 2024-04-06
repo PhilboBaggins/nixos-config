@@ -1,9 +1,13 @@
-{ inputs, pkgs, config, lib, nixpkgs, ... }:
-
-let
-  cfg = config.philShared.gui;
-in
 {
+  inputs,
+  pkgs,
+  config,
+  lib,
+  nixpkgs,
+  ...
+}: let
+  cfg = config.philShared.gui;
+in {
   options.philShared.gui = {
     enable = lib.mkEnableOption "Enable GUI";
   };

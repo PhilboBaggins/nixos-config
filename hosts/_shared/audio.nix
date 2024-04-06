@@ -1,9 +1,13 @@
-{ inputs, pkgs, config, lib, nixpkgs, ... }:
-
-let
-  cfg = config.philShared.audio;
-in
 {
+  inputs,
+  pkgs,
+  config,
+  lib,
+  nixpkgs,
+  ...
+}: let
+  cfg = config.philShared.audio;
+in {
   options.philShared.audio = {
     enable = lib.mkEnableOption "Enable audio support with pipewire";
   };

@@ -1,20 +1,22 @@
-{ config, pkgs, inputs, ... }:
-
 {
-  imports =
-    [
-      ./audio.nix
-      ./gui.nix
-      ./../../modules/nixos/australia.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./audio.nix
+    ./gui.nix
+    ./../../modules/nixos/australia.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -33,7 +35,7 @@
   users.users.phil = {
     isNormalUser = true;
     description = "phil";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
       # TODO: Add your user packages here
     ];
@@ -41,7 +43,7 @@
 
   home-manager = {
     # Also pass to home manager modules
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "phil" = import ./home.nix;
     };
