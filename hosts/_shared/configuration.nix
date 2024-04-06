@@ -54,13 +54,17 @@
   environment.systemPackages = with pkgs; [
     curl
     git
+    gnumake
     imagemagick
     nano
+    nmap
     openssh
+    p7zip
     python3
     ripgrep
     tig
     wget
+    zip
     zsh
   ];
 
